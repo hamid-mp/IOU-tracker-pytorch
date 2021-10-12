@@ -1,9 +1,11 @@
-# -------------------------- Note ------------------
-# modfiy the Max_ID
+'''
 
+Pytorch implementation of IOU-Tracker
 
+inputs: detections for a frame
+outputs : detections with IDs
 
-
+'''
 import torch
 
 
@@ -11,6 +13,10 @@ import torch
 class IOU_tracker_Pytorch:
 
     def __init__(self, sigma_l:float, sigma_iou:float):
+        '''
+        sigma_l : a threshold to remove detections with low confidence score
+        sigma_iou : set a threshold to, if the overlap between to bbox was higher than this value, assign same ID to new detection (bbox)
+        '''
         
 
         self.sigma_l = sigma_l
